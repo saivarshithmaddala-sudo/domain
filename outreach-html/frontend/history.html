@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign History - outreachos.in.net</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="demo.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="navbar" style="backdrop-filter: blur(12px); background: rgba(10, 14, 23, 0.8);">
+    <a href="index.html" class="nav-brand">
+      outreachos<span class="text-cyan">.in.net</span>
+    </a>
+    <div class="nav-links">
+      <a href="how-it-works.html" class="nav-link">Architecture</a>
+      <a href="demo.html" class="nav-link">Pipeline Tracking</a>
+      <a href="history.html" class="nav-link active">History</a>
+      <a href="demo.html" style="text-decoration:none;">
+        <button class="btn-primary">
+          <i data-lucide="play" width="16" height="16"></i> Run Pipeline
+        </button>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Glowing Background Orbs -->
+  <div class="glow-orb primary" style="position: fixed; top: -100px; left: -100px; z-index: -1;"></div>
+  <div class="glow-orb info" style="position: fixed; bottom: -100px; right: -100px; z-index: -1;"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <div class="target-title">Campaign History</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="table-container" style="margin-bottom: 0;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Session ID</th>
+              <th>Date</th>
+              <th>Target Domain</th>
+              <th>Status</th>
+              <th>Contacts Found</th>
+              <th>Emails Sent</th>
+              <th>Delivery Rate</th>
+            </tr>
+          </thead>
+          <tbody id="history-tbody">
+            <tr><td colspan="7" style="text-align:center;color:#6B7280;padding:2rem;">Loading history...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="history.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

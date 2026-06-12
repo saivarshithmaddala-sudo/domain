@@ -1,0 +1,18 @@
+# Ignore node_modules in any folder
+**/node_modules/
+
+# Ignore local environment keys
+**/.env
+
+# Ignore Vercel build folders
+**/.vercel/
+
+# Ignore Vite/build dist directories
+**/dist/
+
+# Ignore local databases/logs
+**/history.json
+
+# OS files
+.DS_Store
+Thumbs.db

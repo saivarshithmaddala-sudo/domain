@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+
+# Local database / run logs
+history.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel build/cache folder
+.vercel/

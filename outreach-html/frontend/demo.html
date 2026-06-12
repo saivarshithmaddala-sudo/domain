@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>outreachos.in.net - Outreach Pipeline</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="demo.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="navbar" style="backdrop-filter: blur(12px); background: rgba(10, 14, 23, 0.8);">
+    <a href="index.html" class="nav-brand">
+      outreachos<span class="text-cyan">.in.net</span>
+    </a>
+    <div class="nav-links">
+      <a href="how-it-works.html" class="nav-link">Architecture</a>
+      <a href="demo.html" class="nav-link active">Pipeline Tracking</a>
+      <a href="history.html" class="nav-link">History</a>
+      <button id="btn-open-init" class="btn-primary">
+        <i data-lucide="play" width="16" height="16"></i> Get Started
+      </button>
+    </div>
+  </nav>
+
+  <!-- Glowing Background Orbs -->
+  <div class="glow-orb primary" style="position: fixed; top: -100px; left: -100px; z-index: -1;"></div>
+  <div class="glow-orb info" style="position: fixed; bottom: -100px; right: -100px; z-index: -1;"></div>
+
+  <main class="container">
+    
+    <div class="page-header">
+      <div>
+        <div class="session-id">Session ID: <span id="session-display">AWAITING_INIT</span></div>
+        <div class="target-title" id="target-display">Target: <span class="text-muted">None</span></div>
+      </div>
+      <div>
+        <div class="status-badge" id="global-status">
+          <i data-lucide="circle" width="12" height="12"></i> <span>IDLE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Card (Hidden until complete) -->
+    <div class="stats-card" id="stats-card" style="display: none;">
+      <div class="stats-header">
+        <i data-lucide="check-circle" width="20" height="20"></i> Pipeline Completed Successfully
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-label">Lookalikes</span>
+          <span class="stat-value" id="stat-lookalikes">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Prospects</span>
+          <span class="stat-value" id="stat-prospects">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Verified</span>
+          <span class="stat-value" id="stat-verified">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Failed</span>
+          <span class="stat-value" id="stat-failed">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Sent</span>
+          <span class="stat-value" id="stat-sent">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Stepper -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">PIPELINE PROGRESS</div>
+      </div>
+      <div class="stepper-container">
+        <div class="stepper-line-bg"></div>
+        <div class="stepper-line-fill" id="stepper-fill" style="width: 0%;"></div>
+        
+        <!-- Step 1: Init -->
+        <div class="step-item active" id="step-1">
+          <div class="step-circle">1</div>
+          <div class="step-label">Init</div>
+        </div>
+        <!-- Step 2: Lookalikes -->
+        <div class="step-item pending" id="step-2">
+          <div class="step-circle">2</div>
+          <div class="step-label">Lookalikes</div>
+        </div>
+        <!-- Step 3: Prospects -->
+        <div class="step-item pending" id="step-3">
+          <div class="step-circle">3</div>
+          <div class="step-label">Prospects</div>
+        </div>
+        <!-- Step 4: Emails -->
+        <div class="step-item pending" id="step-4">
+          <div class="step-circle">4</div>
+          <div class="step-label">Emails</div>
+        </div>
+        <!-- Step 5: Dispatch -->
+        <div class="step-item pending" id="step-5">
+          <div class="step-circle">5</div>
+          <div class="step-label">Dispatch</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Event Stream -->
+    <div class="panel">
+      <div class="terminal-header">
+        <div class="terminal-title">
+          <div class="pulsing-dot" id="terminal-pulse" style="display: none;">
+            <div class="ping"></div>
+            <div class="dot"></div>
+          </div>
+          Live Event Stream
+        </div>
+        <div class="terminal-count">Logs: <span id="log-count">0</span></div>
+      </div>
+      <div class="terminal-box" id="terminal-body">
+        <div class="log-line">
+          <span class="log-time">[00:00:00]</span>
+          <span class="text-muted">System idle. Awaiting configuration...</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Init Modal -->
+  <div class="modal-overlay" id="init-modal" style="display: none;">
+    <div class="modal-card">
+      <button class="modal-close" id="close-init-modal"><i data-lucide="x"></i></button>
+      <div class="modal-tag">STEP 1</div>
+      <h2 class="modal-title"><i data-lucide="settings" width="20" height="20"></i> Configure Pipeline</h2>
+      <p class="modal-desc">Enter a seed domain to discover lookalikes and scrape decision-makers.</p>
+      
+      <form id="init-form">
+        <div class="form-group">
+          <label class="form-label">Seed Domain</label>
+          <input type="text" id="domain-input" class="form-input" placeholder="e.g. stripe.com" required>
+        </div>
+        <div class="modal-footer" style="margin-top: 2rem;">
+          <button type="submit" class="btn-primary" style="width: 100%;">Initialize Pipeline</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Safety Gate Modal -->
+  <div class="modal-overlay" id="safety-modal" style="display: none;">
+    <div class="modal-card large" style="padding: 2rem;">
+      <h2 class="modal-title" style="margin-bottom: 0.75rem; font-size: 1.5rem;">
+        🎯 Ready to Send <span class="contacts-count-pill" id="safety-contact-count">0 CONTACTS</span>
+      </h2>
+      <p class="modal-desc">Review the resolved contacts below. Confirm to dispatch personalised outreach emails, or cancel to abort.</p>
+      
+      <div class="table-container" style="border: none; border-bottom: 1px solid #1F2937; margin-bottom: 1rem; border-radius: 0;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>TITLE</th>
+              <th>COMPANY</th>
+            </tr>
+          </thead>
+          <tbody id="contacts-tbody">
+            <!-- JS Injection -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-footer" style="border: none; justify-content: flex-end; align-items: center; padding: 0;">
+        <button id="modal-cancel" class="btn-ghost" style="border: none; font-size: 1rem;"><i data-lucide="x"></i> Cancel Campaign</button>
+        <button id="modal-approve" class="btn-primary" style="background-color: transparent; color: #fff; font-size: 1rem;">
+          <span style="color: #F59E0B;">⚡</span> <span id="btn-send-text">Send Emails</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="demo.js"></script>
+</body>
+</html>

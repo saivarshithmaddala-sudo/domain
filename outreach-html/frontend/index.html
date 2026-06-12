@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>outreachos.in.net - The Automated Cold-Outreach Pipeline</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Standard Navbar -->
+  <nav class="navbar" style="backdrop-filter: blur(12px); background: rgba(10, 14, 23, 0.8);">
+    <a href="index.html" class="nav-brand">
+      outreachos<span class="text-cyan">.in.net</span>
+    </a>
+    <div class="nav-links">
+      <a href="how-it-works.html" class="nav-link">Architecture</a>
+      <a href="demo.html" class="nav-link">Pipeline Tracking</a>
+      <a href="history.html" class="nav-link">History</a>
+      <a href="demo.html" style="text-decoration:none;">
+        <button class="btn-primary">
+          <i data-lucide="play" width="16" height="16"></i> Get Started
+        </button>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Lightfall Background -->
+  <div id="lightfall-bg" class="lightfall-container">
+    <div class="lightfall-overlay"></div>
+    <div class="lightfall-fade"></div>
+  </div>
+
+  <main class="landing-page">
+    <!-- Glowing Background Orbs -->
+    <div class="glow-orb primary"></div>
+    <div class="glow-orb info"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-eyebrow fade-up">
+        <i data-lucide="cpu" width="14" height="14"></i> ZERO HUMANS IN THE LOOP
+      </div>
+      <h1 class="hero-title fade-up delay-100">
+        One domain input.<br>
+        <span class="text-gradient">A full outreach engine.</span>
+      </h1>
+      <p class="hero-subtitle fade-up delay-200">
+        Type a single company domain. The pipeline autonomously discovers lookalike audiences, surfaces executive decision-makers, verifies their emails, and dispatches hyper-personalized outreach.
+      </p>
+      <div class="hero-ctas fade-up delay-300">
+        <a href="demo.html" class="btn-primary btn-large">
+          <i data-lucide="zap" width="18" height="18"></i> Run Pipeline
+        </a>
+        <a href="how-it-works.html" class="btn-outline btn-large">
+          <i data-lucide="book-open" width="18" height="18"></i> View Architecture
+        </a>
+      </div>
+
+      <!-- Glassmorphic Mockup Graphic -->
+      <div class="hero-mockup-wrapper fade-up delay-400">
+        <div class="hero-mockup">
+          <div class="mockup-header">
+            <div class="mockup-dot red"></div>
+            <div class="mockup-dot yellow"></div>
+            <div class="mockup-dot green"></div>
+          </div>
+          <div class="mockup-body">
+            <!-- Simulated UI inside the mockup -->
+            <div style="display:flex; flex-direction:column; gap:1rem; width:100%; max-width:600px;">
+              <div style="display:flex; align-items:center; gap:1rem; background:rgba(0,0,0,0.4); padding:1rem; border-radius:0.5rem; border:1px solid rgba(255,255,255,0.05);">
+                <i data-lucide="search" class="text-cyan"></i>
+                <div style="flex:1;">
+                  <div style="height:8px; width:40%; background:rgba(255,255,255,0.2); border-radius:4px; margin-bottom:0.5rem;"></div>
+                  <div style="height:8px; width:60%; background:rgba(255,255,255,0.1); border-radius:4px;"></div>
+                </div>
+                <div class="spinner" style="border-width:2px; width:16px; height:16px;"></div>
+              </div>
+              <div style="display:flex; align-items:center; gap:1rem; background:rgba(0,0,0,0.4); padding:1rem; border-radius:0.5rem; border:1px solid rgba(255,255,255,0.05);">
+                <i data-lucide="users" style="color:#A78BFA;"></i>
+                <div style="flex:1;">
+                  <div style="height:8px; width:30%; background:rgba(255,255,255,0.2); border-radius:4px; margin-bottom:0.5rem;"></div>
+                  <div style="height:8px; width:50%; background:rgba(255,255,255,0.1); border-radius:4px;"></div>
+                </div>
+                <div style="width:16px; height:16px; border-radius:50%; background:#10B981;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Strip -->
+    <section class="social-proof">
+      <div class="proof-label">Trusted by high-velocity revenue teams</div>
+      <div class="logo-strip">
+        <div class="logo-item"><i data-lucide="triangle" fill="currentColor"></i> Vercel</div>
+        <div class="logo-item"><i data-lucide="hexagon" fill="currentColor"></i> Stripe</div>
+        <div class="logo-item"><i data-lucide="box" fill="currentColor"></i> Linear</div>
+        <div class="logo-item"><i data-lucide="circle" fill="currentColor"></i> OpenAI</div>
+      </div>
+    </section>
+
+    <!-- Features Z-Pattern -->
+    <section class="features-section">
+      
+      <!-- Feature 1 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-tag">Stage 1: Intelligence</div>
+          <h2 class="feature-title">Lookalike Discovery</h2>
+          <p class="feature-desc">Feed the engine a single seed domain. The AI instantly scans the web to discover 20-50 highly similar companies that match the exact same firmographic and technical profile as your best customer.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="glass-card">
+            <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:1rem;">
+              <i data-lucide="target" class="text-cyan" width="24" height="24"></i>
+              <span class="font-mono">Input: stripe.com</span>
+            </div>
+            <div class="font-mono" style="color:#9CA3AF; font-size:0.875rem;">
+              > Analyzing firmographics...<br>
+              > Found 43 direct competitors<br>
+              > <span class="text-green">Match score: 98%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-row reverse">
+        <div class="feature-content">
+          <div class="feature-tag">Stage 2: Sourcing</div>
+          <h2 class="feature-title">Decision-Maker Targeting</h2>
+          <p class="feature-desc">Stop guessing who to email. The system autonomously scrapes LinkedIn to surface the exact C-suite and VP-level contacts at every lookalike company, complete with their verified social profiles.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="glass-card">
+            <div style="display:flex; gap:1rem; margin-bottom:1rem;">
+              <div style="width:40px; height:40px; border-radius:50%; background:rgba(99, 102, 241, 0.2); display:flex; align-items:center; justify-content:center;">
+                <i data-lucide="user" class="text-purple"></i>
+              </div>
+              <div>
+                <div style="color:#fff; font-weight:600;">Elena Novak</div>
+                <div style="color:#9CA3AF; font-size:0.875rem;">Co-Founder @ flyingbird.in</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem;">
+              <div style="width:40px; height:40px; border-radius:50%; background:rgba(99, 102, 241, 0.2); display:flex; align-items:center; justify-content:center;">
+                <i data-lucide="user" class="text-purple"></i>
+              </div>
+              <div>
+                <div style="color:#fff; font-weight:600;">William Kim</div>
+                <div style="color:#9CA3AF; font-size:0.875rem;">CEO @ dealyasteal.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-tag">Stage 3: Dispatch</div>
+          <h2 class="feature-title">Auto-Send with Safety Gate</h2>
+          <p class="feature-desc">Before a single email leaves your outbox, the pipeline halts at a visual Safety Gate. Review the resolved leads, verify the personalization, and authorize the final dispatch with one click.</p>
+        </div>
+        <div class="feature-visual">
+          <div class="glass-card" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(6, 78, 59, 0.1);">
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:0.5rem; color:#34D399; font-weight:600;">
+                <i data-lucide="shield-check"></i> Safety Gate Passed
+              </div>
+              <div style="background:rgba(16, 185, 129, 0.2); padding:0.25rem 0.75rem; border-radius:99px; font-size:0.75rem; font-weight:700; color:#10B981;">
+                25 CONTACTS
+              </div>
+            </div>
+            <div style="margin-top:1.5rem;">
+              <button class="btn-primary" style="width:100%; display:flex; justify-content:center; gap:0.5rem; background:#10B981; color:#064E3B;">
+                <i data-lucide="send" width="16" height="16"></i> Authorize Dispatch
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script type="module">
+    import { Lightfall } from './lightfall.js?v=2';
+
+    new Lightfall('lightfall-bg', {
+      colors: ['#6366F1', '#06B6D4', '#10B981'],
+      backgroundColor: '#0A0E17',
+      speed: 0.8,
+      streakCount: 6,
+      streakWidth: 1.2,
+      streakLength: 0.8,
+      glow: 0.8,
+      density: 0.5,
+      twinkle: 0.8,
+      zoom: 2.5,
+      backgroundGlow: 0.4,
+      opacity: 0.7,
+      mouseInteraction: true,
+      mouseStrength: 0.5,
+      mouseRadius: 0.8,
+      mouseDampening: 0.15
+    });
+  </script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

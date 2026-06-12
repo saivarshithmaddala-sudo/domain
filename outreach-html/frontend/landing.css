@@ -1,0 +1,331 @@
+/* Premium Landing Page Styles */
+
+/* Base Layout */
+.landing-page {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Background Glowing Orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.glow-orb.primary {
+  background: var(--accent-primary);
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  left: -150px;
+}
+.glow-orb.info {
+  background: var(--info);
+  width: 400px;
+  height: 400px;
+  top: 20%;
+  right: -100px;
+  opacity: 0.2;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  background-color: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #A5B4FC;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.hero-title .text-gradient {
+  background: linear-gradient(135deg, #A5B4FC, var(--info));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-large {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Glassmorphic Mockup Container */
+.hero-mockup-wrapper {
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-mockup {
+  background: rgba(13, 17, 23, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+}
+
+.mockup-header {
+  display: flex;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1rem;
+}
+
+.mockup-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #374151;
+}
+.mockup-dot.red { background: #EF4444; }
+.mockup-dot.yellow { background: #F59E0B; }
+.mockup-dot.green { background: #10B981; }
+
+.mockup-body {
+  position: relative;
+  height: 300px;
+  background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Social Proof */
+.social-proof {
+  padding: 4rem 1.5rem;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.proof-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.logo-strip {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.logo-item {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-sans);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Features Z-Pattern */
+.features-section {
+  max-width: 1200px;
+  width: 100%;
+  padding: 6rem 1.5rem;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 8rem;
+}
+
+.feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.feature-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-tag {
+  color: var(--info);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.feature-desc {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.feature-visual {
+  flex: 1;
+  position: relative;
+}
+
+.glass-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feature-row, .feature-row.reverse {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+.lightfall-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.lightfall-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 14, 23, 0.3);
+}
+.lightfall-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16rem;
+  background: linear-gradient(to top, var(--bg-main) 0%, transparent 100%);
+}
