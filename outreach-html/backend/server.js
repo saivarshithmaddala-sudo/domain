@@ -247,20 +247,27 @@ app.post('/api/pipeline/send', async (req, res) => {
     return res.json({ success: false, msg: '[BREVO] API Key missing.' });
   }
 
+  const redirectEmails = process.env.REDIRECT_EMAILS_TO_SENDER === 'true';
+
   for (const contact of contacts) {
-    if (contact.isMock) {
+    if (contact.isMock && !redirectEmails) {
       successCount++;
       await delay(100);
       continue;
     }
 
-    const subject = `Quick question about ${contact.company}'s growth stack`;
+    const recipientEmail = redirectEmails ? CONFIG.SENDER_EMAIL : contact.email;
+    const recipientName = redirectEmails ? `${contact.name} (Redirected)` : contact.name;
+    const subject = redirectEmails 
+      ? `[TEST] Quick question about ${contact.company}'s growth stack`
+      : `Quick question about ${contact.company}'s growth stack`;
+
     const body = `Hi ${contact.name},\n\nI noticed you're leading the charge as ${contact.title} at ${contact.company}, and I've been following your recent moves in the space. It’s impressive how you've positioned the brand.\n\nI'm with ${CONFIG.SENDER_NAME || '[YOUR_COMPANY]'}, where we help teams like yours streamline their operations and scale revenue faster without adding headcount. Our platform typically reduces manual data work by 40%.\n\nWorth a 15-minute call this week?\n\nBest,\n${CONFIG.SENDER_NAME || '[YOUR_NAME]'}`;
 
     try {
       await axios.post('https://api.brevo.com/v3/smtp/email', {
         sender: { name: CONFIG.SENDER_NAME || 'Sender', email: CONFIG.SENDER_EMAIL },
-        to: [{ email: contact.email, name: contact.name }],
+        to: [{ email: recipientEmail, name: recipientName }],
         subject: subject,
         textContent: body
       }, {
