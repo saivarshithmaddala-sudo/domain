@@ -93,24 +93,29 @@ async function runStage2(domains, logs) {
         headers: { 'X-KEY': CONFIG.PROSPEO_API_KEY, 'Content-Type': 'application/json' }
       });
 
-      const contacts = response.data?.response?.results || [];
-      const relevantContacts = contacts.filter(c => targetTitles.some(t => (c.title || '').toLowerCase().includes(t)));
+      if (response.data?.error) {
+        logs.push({ stage: 2, type: 'warn', msg: `[PROSPEO] ${domain}: ${response.data.error_code || 'Error'}` });
+      } else {
+        const contacts = response.data?.response?.results || [];
+        const relevantContacts = contacts.filter(c => targetTitles.some(t => (c.title || '').toLowerCase().includes(t)));
 
-      if (relevantContacts.length > 0) {
-        domainSuccess = true;
-        relevantContacts.forEach(c => {
-          allContacts.push({
-            name: c.name || c.full_name,
-            title: c.title,
-            company: domain,
-            domain: domain,
-            linkedinUrl: c.linkedin_url || c.linkedin,
-            email: c.email?.email || c.email || null
+        if (relevantContacts.length > 0) {
+          domainSuccess = true;
+          relevantContacts.forEach(c => {
+            allContacts.push({
+              name: c.name || c.full_name,
+              title: c.title,
+              company: domain,
+              domain: domain,
+              linkedinUrl: c.linkedin_url || c.linkedin,
+              email: c.email?.email || c.email || null
+            });
           });
-        });
+        }
       }
     } catch (error) {
-      // Ignore individually
+      const errMsg = error.response?.data?.error_code || error.response?.data?.message || error.message;
+      logs.push({ stage: 2, type: 'warn', msg: `[PROSPEO] ${domain} search failed: ${errMsg}` });
     }
 
     if (!domainSuccess) {
@@ -125,7 +130,7 @@ async function runStage2(domains, logs) {
         title: mockTitles[randomIdx],
         company: domain,
         domain: domain,
-        linkedinUrl: `https://www.linkedin.com/in/${nameParts[0].toLowerCase()}-${nameParts[1].toLowerCase()}`,
+        linkedinUrl: `https://www.linkedin.com/in/${nameParts[0].toLowerCase()}-${nameParts[1].toLowerCase()}-${domain.replace(/\./g, '-')}`,
         email: `${emailLocal}@${domain}`,
         isMock: true // Flag to prevent sending actual emails to fake addresses
       });
